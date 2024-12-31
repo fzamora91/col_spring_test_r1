@@ -6,11 +6,12 @@ import com.reto.demo.Domain.dto.Persona;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RepositorioEstudiante
 {
 
-    private List<Estudiante> estudiantes;
+    public List<Estudiante> estudiantes;
 
     // Constructor
     public RepositorioEstudiante() {
@@ -19,7 +20,7 @@ public class RepositorioEstudiante
     }
 
     // Método para agregar estudiantes
-    private void agregarEstudiantes() {
+    public void agregarEstudiantes() {
         // Creamos direcciones para cada persona
         Direccion direccionJuan = new Direccion("Calle Falsa 123", "Ciudad A", "Estado A", "12345", "Pais A");
         Direccion direccionAna = new Direccion("Calle Real 456", "Ciudad B", "Estado B", "67890", "Pais B");
@@ -36,5 +37,37 @@ public class RepositorioEstudiante
     public List<Estudiante> obtenerEstudiantes() {
         return estudiantes;
     }
+
+    // Método para filtar estudiante por el campo nombre
+    public List<Estudiante> obtenerEstudiantePorNombre(String nombre)
+    {
+
+        return obtenerEstudiantes()
+                .stream()
+                .filter(estudiante -> estudiante.persona.nombre.equalsIgnoreCase(nombre))
+                .collect(Collectors.toList());
+
+    }
+
+    // Método para filtar estudiante por el campo numero de celular
+    public List<Estudiante> obtenerEstudiantePorCelular(String celular)
+    {
+
+        return obtenerEstudiantes()
+                .stream()
+                .filter(estudiante -> estudiante.persona.numeroCelular.equals(celular))
+                .collect(Collectors.toList());
+
+    }
+
+    // Método para filtar estudiante por el campo promedio de notas
+    public List<Estudiante> obtenerEstudiantePorPromedioNotas(double promedioNotas)
+    {
+        return obtenerEstudiantes()
+                .stream()
+                .filter(estudiante -> estudiante.promedioNotas == promedioNotas)
+                .collect(Collectors.toList());
+    }
+
 
 }

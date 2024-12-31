@@ -11,6 +11,12 @@ public class Direccion {
 
     public Direccion(String direccion, String ciudadA, String estadoA, String codigoPostal, String pais){
 
+        this.direccion = direccion;
+        this.ciudad=ciudadA;
+        this.estado= estadoA;
+        this.codigoPostal = codigoPostal;
+        this.pais = pais;
+
     }
 
 

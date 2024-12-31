@@ -4,9 +4,15 @@ public class Estudiante {
 
     public Persona persona;
     public int numeroEstudiante;
-    public float promedioNotas;
+    public double promedioNotas;
 
-    public Estudiante(Persona juan, int i, float v){
+    public Estudiante(Persona persona, int i, double promedio)
+    {
+
+        this.persona=persona;
+        this.numeroEstudiante = i;
+        this.promedioNotas = promedio;
+
 
     }
 
