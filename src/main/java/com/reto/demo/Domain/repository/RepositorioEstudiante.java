@@ -5,6 +5,7 @@ import com.reto.demo.Domain.dto.Estudiante;
 import com.reto.demo.Domain.dto.Persona;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,6 +67,15 @@ public class RepositorioEstudiante
         return obtenerEstudiantes()
                 .stream()
                 .filter(estudiante -> estudiante.promedioNotas == promedioNotas)
+                .collect(Collectors.toList());
+    }
+
+    //Método para ordernar estudiante por el campo promedio de notas
+    public List<Estudiante> ordenarstudiantePorPromedioNotas()
+    {
+        return obtenerEstudiantes()
+                .stream()
+                .sorted(Comparator.comparingDouble(Estudiante::getPromedioNotas).reversed()) // Orden descendente
                 .collect(Collectors.toList());
     }
 

@@ -5,7 +5,9 @@ import com.reto.demo.Domain.dto.Estudiante;
 import com.reto.demo.Domain.repository.RepositorioEstudiante;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EstudianteService {
@@ -17,11 +19,6 @@ public class EstudianteService {
     // Constructor con inyección de dependencias
     public EstudianteService() {
         repositorioEstudiante = new RepositorioEstudiante(); // Puedes cambiar esto por una implementación de repositorio real
-    }
-
-    //Metodo para agregar estudiastes
-    public void agregarEstudianste(){
-
     }
 
     // Método para obtener todos los estudiantes
@@ -47,6 +44,13 @@ public class EstudianteService {
     public List<Estudiante> obtenerEstudiantePorPromedioNotas(double promedioNotas)
     {
         return  repositorioEstudiante.obtenerEstudiantePorPromedioNotas(promedioNotas);
+    }
+
+
+    //Método para ordernar estudiante por el campo promedio de notas
+    public List<Estudiante> ordenarstudiantePorPromedioNotas()
+    {
+        return  repositorioEstudiante.ordenarstudiantePorPromedioNotas();
     }
 
 

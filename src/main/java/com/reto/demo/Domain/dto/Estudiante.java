@@ -17,4 +17,8 @@ public class Estudiante {
     }
 
 
+    public double getPromedioNotas() {
+        return promedioNotas;
+    }
+
 }

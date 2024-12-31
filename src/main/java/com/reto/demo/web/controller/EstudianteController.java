@@ -50,6 +50,12 @@ public class EstudianteController {
         return estudianteService.obtenerEstudiantePorPromedioNotas(estudiante.promedio);
     }
 
+    @PostMapping("/ordenarstudiantePorPromedioNotas")
+    public List<Estudiante> ordenarstudiantePorPromedioNotas()
+    {
+        return  estudianteService.ordenarstudiantePorPromedioNotas();
+    }
+
 
 
 }
